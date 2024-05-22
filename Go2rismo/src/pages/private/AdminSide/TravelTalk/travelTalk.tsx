@@ -326,9 +326,11 @@ export const AdminTalk = () => {
                     <Select.Option value="Barili">Barili</Select.Option>
                     <Select.Option value="Bogo City">Bogo City</Select.Option>
                     <Select.Option value="Boljoon">Boljoon</Select.Option>
-                    <Select.Option value="Borbon">BorbonBorbon</Select.Option>
-                    <Select.Option value="Carmen">CarmenCarmen</Select.Option>
+                    <Select.Option value="Borbon">Borbon</Select.Option>
+                    <Select.Option value="Carcar City">Carcar City</Select.Option>
+                    <Select.Option value="Carmen">Carmen</Select.Option>
                     <Select.Option value="Catmon">Catmon</Select.Option>
+                    <Select.Option value="Cebu City">Cebu City</Select.Option>
                     <Select.Option value="Compostela">Compostela</Select.Option>
                     <Select.Option value="Consolacion">Consolacion</Select.Option>
                     <Select.Option value="Cordova">Cordova</Select.Option>
