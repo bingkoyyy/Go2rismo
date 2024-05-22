@@ -91,6 +91,9 @@ export const BusinessDashboard = () => {
               spaceBetween={0}
               navigation={true}
               modules={[Pagination, Navigation]}
+              pagination={{
+                clickable: true,
+              }}
               className=''
             >
              {allPost?.businessType?.beachResorts?.map((item:any,idx:number) =>(
@@ -120,6 +123,9 @@ export const BusinessDashboard = () => {
               spaceBetween={0}
               navigation={true}
               modules={[Pagination, Navigation]}
+              pagination={{
+                clickable: true,
+              }}
               className=''
             >
              {allPost?.businessType?.hotelRoom?.map((item:any,idx:number) =>(
@@ -147,9 +153,43 @@ export const BusinessDashboard = () => {
               spaceBetween={0}
               navigation={true}
               modules={[Pagination, Navigation]}
+              pagination={{
+                clickable: true,
+              }}
               className=''
             >
              {allPost?.businessType?.foodRestaurant?.map((item:any,idx:number) =>(
+              <SwiperSlide className=''>
+                <a href={`/BusinessDashBoard/HomePage/${item.type}/${item.name}`}  key={idx} className='w-[222.5px] h-[150px] bg-white cursor-pointer rounded-lg relative'>
+                <div className='relative'>
+                <img 
+                src={item.photos[0]} 
+                className="w-full rounded-lg w-[170px] h-[150px]"
+                />
+                <p className='bg-white/40 font-bold backdrop-blur-sm rounded-lg px-4 py-2 absolute bottom-4 left-4'>{item.name}</p>
+                </div>
+                </a>
+              </SwiperSlide>
+             ))}
+            </Swiper> : <p>No post has been made</p>}
+            </div>
+          </div>
+          <div>
+            <h1 className='font-bold text-3xl'>Tourist Spots</h1>
+            <div className='w-[800px] p-4'>
+            {allPost?.businessType?.touristSpots?.length > 0 ? <Swiper
+              ref={swiperRef}
+              slidesPerView={3}
+              spaceBetween={0}
+              navigation={true}
+              modules={[Pagination, Navigation]}
+              pagination={{
+                clickable: true,
+              }}
+              
+              className=''
+            >
+             {allPost?.businessType?.touristSpots?.map((item:any,idx:number) =>(
               <SwiperSlide className=''>
                 <a href={`/BusinessDashBoard/HomePage/${item.type}/${item.name}`}  key={idx} className='w-[222.5px] h-[150px] bg-white cursor-pointer rounded-lg relative'>
                 <div className='relative'>
