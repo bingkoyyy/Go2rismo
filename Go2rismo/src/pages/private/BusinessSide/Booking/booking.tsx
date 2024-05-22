@@ -111,7 +111,8 @@ export const BusinessBooking = () => {
       ),
     },
   ];
-  const reserve = business.booking?.filter((item:any) => item.hotelresortDetails.businessId === business.info?.id)
+  console.log(business.booking)
+  const reserve = business.booking?.filter((item:any) => item.hotelresortDetails?.businessId === business.info?.id)
   return (
     <div className="px-12 pt-4">
       <h1 className="text-lg font-bold">List of Booking</h1>

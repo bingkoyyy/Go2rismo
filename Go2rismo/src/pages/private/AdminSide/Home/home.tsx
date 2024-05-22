@@ -72,9 +72,6 @@ export const AdminDashboard = () => {
               spaceBetween={0}
               navigation={true}
               modules={[Pagination, Navigation]}
-              pagination={{
-                clickable: true,
-              }}
               className=''
             >
              {allPost?.businessType.beachResorts?.map((item:any,idx:number) =>(
@@ -102,9 +99,6 @@ export const AdminDashboard = () => {
               spaceBetween={0}
               navigation={true}
               modules={[Pagination, Navigation]}
-              pagination={{
-                clickable: true,
-              }}
               className=''
             >
              {allPost?.businessType.hotelRoom?.map((item:any,idx:number) =>(
@@ -132,9 +126,6 @@ export const AdminDashboard = () => {
               spaceBetween={0}
               navigation={true}
               modules={[Pagination, Navigation]}
-              pagination={{
-                clickable: true,
-              }}
               className=''
             >
              {allPost?.businessType.foodRestaurant?.map((item:any,idx:number) =>(
@@ -162,9 +153,6 @@ export const AdminDashboard = () => {
               spaceBetween={0}
               navigation={true}
               modules={[Pagination, Navigation]}
-              pagination={{
-                clickable: true,
-              }}
               className=''
             >
              {allPost?.businessType.touristSpots?.map((item:any,idx:number) =>(
@@ -186,7 +174,7 @@ export const AdminDashboard = () => {
         </div>
       </div>
       <div className='flex-1 p-8'>
-        <div className='shadow-lg h-[670px] p-4 overflow-y-auto'>
+        <div className='shadow-border h-[670px] p-4 overflow-y-auto'>
             <h1 className='font-bold text-3xl'>Event/Announcements</h1>
             <List
               className="demo-loadmore-list"

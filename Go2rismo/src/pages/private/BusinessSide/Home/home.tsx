@@ -91,9 +91,6 @@ export const BusinessDashboard = () => {
               spaceBetween={0}
               navigation={true}
               modules={[Pagination, Navigation]}
-              pagination={{
-                clickable: true,
-              }}
               className=''
             >
              {allPost?.businessType?.beachResorts?.map((item:any,idx:number) =>(
@@ -123,9 +120,6 @@ export const BusinessDashboard = () => {
               spaceBetween={0}
               navigation={true}
               modules={[Pagination, Navigation]}
-              pagination={{
-                clickable: true,
-              }}
               className=''
             >
              {allPost?.businessType?.hotelRoom?.map((item:any,idx:number) =>(
@@ -153,9 +147,6 @@ export const BusinessDashboard = () => {
               spaceBetween={0}
               navigation={true}
               modules={[Pagination, Navigation]}
-              pagination={{
-                clickable: true,
-              }}
               className=''
             >
              {allPost?.businessType?.foodRestaurant?.map((item:any,idx:number) =>(
@@ -183,10 +174,6 @@ export const BusinessDashboard = () => {
               spaceBetween={0}
               navigation={true}
               modules={[Pagination, Navigation]}
-              pagination={{
-                clickable: true,
-              }}
-              
               className=''
             >
              {allPost?.businessType?.touristSpots?.map((item:any,idx:number) =>(
