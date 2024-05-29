@@ -1,0 +1,11 @@
+.row-pending {
+  background-color: #f3d955; /* Light gold background */
+}
+
+.row-accepted {
+  background-color: #61a120; /* Light green background */
+}
+
+.row-rejected {
+  background-color: #d84e44; /* Light red background */
+}
