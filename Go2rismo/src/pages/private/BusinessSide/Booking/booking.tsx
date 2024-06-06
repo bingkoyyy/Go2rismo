@@ -8,6 +8,7 @@ import { fetchData } from "../../../../hooks/useFetchData";
 import { Tag, notification } from "antd";
 import { CustomButton } from "../../../../components/Button/CustomButton";
 import { updateData } from "../../../../hooks/useUpdateData";
+import './TravelBooking.css'; // Import the CSS file for styling
 
 export const BusinessBooking = () => {
   const [isLoading,setIsLoading] = useState(false)
@@ -111,6 +112,12 @@ export const BusinessBooking = () => {
       ),
     },
   ];
+  const rowClassName = (record: any) => {
+    if (record.status === 'Pending') return 'row-pending';
+    if (record.status === 'Accepted') return 'row-accepted';
+    if (record.status === 'Declined') return 'row-rejected';``
+    return '';
+  };
   console.log(business.booking)
   const reserve = business.booking?.filter((item:any) => item.hotelresortDetails?.businessId === business.info?.id)
   return (
@@ -120,6 +127,7 @@ export const BusinessBooking = () => {
         columns={columns}
         datasource={reserve ?? []}
         loading={isLoading}
+        rowClassName={rowClassName} // Apply the rowClassName function
       />
 
     </div>

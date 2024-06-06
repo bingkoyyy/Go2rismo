@@ -94,8 +94,7 @@ export const Login = () => {
   return (
     <div className='h-screen w-full bg-gradient-to-b from-white via-green-400 to-cyan-500 flex justify-center relative items-center pt-24'>
       <div className='absolute top-0 right-0 flex flex-nowrap p-4 text-lg tracking-widest'> 
-        <p className='text-[#00256E78] font-bold'>Don't have an account? </p>
-        <Link className='text-[#00256E] font-bold' to={'/Signup'}> Sign up</Link>
+        
       </div>
       <div className='w-1/2 flex  flex-col justify-center items-center'>
         <img className='w-64' src={Logo} alt="logo" />
@@ -129,7 +128,10 @@ export const Login = () => {
           >
             <Input.Password />
           </Form.Item>
+          <p className='text-[#00256E78] font-bold'>Don't have an account? <Link className='text-[#00256E] font-bold' to={'/Signup'}> Sign up</Link></p>
           <Form.Item wrapperCol={{ offset: 20, span: 24 }} className='w-full'>
+          
+        
           <CustomButton
             children={'Login'}
             type='primary'

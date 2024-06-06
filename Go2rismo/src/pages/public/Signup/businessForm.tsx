@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { fetchData } from '../../../hooks/useFetchData';
 import { allUser, selector } from '../../../zustand/store/store.provide';
 import useStore from '../../../zustand/store/store';
+import { Link } from 'react-router-dom'
 
 const { Option } = Select;
 
@@ -256,6 +257,7 @@ export const BusinessFrm = () => {
                     <Select.Option value="Resort">Resort</Select.Option>
                     <Select.Option value="Hotel & Rooms">Hotel & Rooms</Select.Option>
                     <Select.Option value="Restaurant">Restaurant</Select.Option>
+                    <Select.Option value="Tourist Spots">Tourist Spots</Select.Option>
                 </Select>
                 </Form.Item>
                 </div>
@@ -308,6 +310,7 @@ export const BusinessFrm = () => {
                 >
                     <Input.Password />
                 </Form.Item>
+                <p className='text-[#00256E78] font-bold'>Already have an account? <Link className='text-[#00256E] font-bold' to={'/Login'}>Login</Link></p>
                 </div>
             </div>
             <Form.Item wrapperCol={{ offset: 8, span: 16 }} className='flex justify-end items-end mr-44'>

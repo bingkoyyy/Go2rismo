@@ -13,6 +13,7 @@ import 'swiper/css/navigation';
 import './styles.css';
 import { useDebounce } from "../../../../utils/utils";
 
+
 const  { Search } = Input
 export const TravelDashboard = () => {
   const countPerPage = 1;
@@ -69,8 +70,9 @@ export const TravelDashboard = () => {
     setSearchQuery(res);
   }, [allPost.post]);
   return (
+    <div className='travel-dashboard-background w-full flex flex-wrap flex-col sm:flex-col lg:flex-row justify-between overflow-x-auto'>
     <div className='w-full flex flex-wrap flex-col sm:flex-col lg:flex-row justify-between overflow-x-auto'>
-      <div className='w-full lg:w-[750px] xl:w-[1000px] flex flex-col'>
+      <div className='w-full lg:w-[850px] xl:w-[1290px] flex flex-col'>
         <div className='w-full p-4 relative'> 
         <Search allowClear placeholder="Search product name..." onChange={useDebounce(onSetFilter)}  style={{ width: 400 }} />
         <div className="absolute z-50 bg-white px-4 py-2 w-[400px] flex flex-col gap-2">
@@ -83,7 +85,7 @@ export const TravelDashboard = () => {
         <div className='px-4 sm:px-8 flex flex-col'>
         <div>
             <h1 className='font-bold text-3xl'>Beach & Resorts</h1>
-            <div id="user" className='w-full p-4'>
+            <div id="user" className='w-full p-4 mu-5'>
             <Swiper
               ref={swiperRef}
               slidesPerView={1}
@@ -110,19 +112,20 @@ export const TravelDashboard = () => {
               className=''
             >
              {allPost?.businessType?.beachResorts?.map((item:any,idx:number) =>(
-              <SwiperSlide className=''>
-              <SwiperSlide>
-                <a href={`/UserDashBoard/HomePage/${item.type}/${item.name}`}  key={idx} className='w-full bg-white cursor-pointer rounded-lg relative'>
+              <SwiperSlide key={idx}>
+              <a href={`/UserDashBoard/HomePage/${item.type}/${item.name}`} className='w-full bg-white cursor-pointer rounded-lg relative'>
                 <div className='relative'>
-                <img 
-                src={item.photos[0]} 
-                className="w-full rounded-lg w-[170px] h-[150px]"
-                />
-                <p className='bg-white/40 font-bold backdrop-blur-sm rounded-lg px-4 py-2 absolute bottom-4 left-4'>{item.name}</p>
+                  <img 
+                    src={item.photos[0]} 
+                    className="w-full rounded-lg w-[170px] h-[150px]"
+                    alt={item.name}
+                  />
                 </div>
-                </a>
-              </SwiperSlide>
-              </SwiperSlide>
+                <p className='line-clamp-1 bg-white/50 font-bold backdrop-blur-sm rounded-lg px-4 py-2 absolute bottom-2 left-2 right-2'>
+                  {item.name}
+                </p>
+              </a>
+            </SwiperSlide>
              ))}
             </Swiper>
             </div>
@@ -155,17 +158,20 @@ export const TravelDashboard = () => {
               }}
             >
              {allPost?.businessType?.hotelRoom?.map((item:any,idx:number) =>(
-              <SwiperSlide>
-                <a href={`/UserDashBoard/HomePage/${item.type}/${item.name}`}  key={idx} className='w-full  bg-white cursor-pointer rounded-lg relative'>
+              <SwiperSlide key={idx}>
+              <a href={`/UserDashBoard/HomePage/${item.type}/${item.name}`} className='w-full bg-white cursor-pointer rounded-lg relative'>
                 <div className='relative'>
-                <img 
-                src={item.photos[0]} 
-                className="w-full rounded-lg w-[170px] h-[150px] object-fill"
-                />
-                <p className='line-clamp-1 bg-white/40 font-bold backdrop-blur-sm rounded-lg px-4 py-2 absolute bottom-4 left-4'>{item.name}</p>
+                  <img 
+                    src={item.photos[0]} 
+                    className="w-full rounded-lg w-[170px] h-[150px]"
+                    alt={item.name}
+                  />
                 </div>
-                </a>
-              </SwiperSlide>
+                <p className='line-clamp-1 bg-white/50 font-bold backdrop-blur-sm rounded-lg px-4 py-2 absolute bottom-2 left-2 right-2'>
+                  {item.name}
+                </p>
+              </a>
+            </SwiperSlide>
              ))}
             </Swiper> : <p>No post has been made</p>}
             </div>
@@ -198,17 +204,20 @@ export const TravelDashboard = () => {
               }}
             >
              {allPost?.businessType?.foodRestaurant?.map((item:any,idx:number) =>(
-              <SwiperSlide className=''>
-                <a href={`/UserDashBoard/HomePage/${item.type}/${item.name}`}  key={idx} className='w-full bg-white cursor-pointer rounded-lg relative'>
+              <SwiperSlide key={idx}>
+              <a href={`/UserDashBoard/HomePage/${item.type}/${item.name}`} className='w-full bg-white cursor-pointer rounded-lg relative'>
                 <div className='relative'>
-                <img 
-                src={item.photos[0]} 
-                className="w-full rounded-lg w-[170px] h-[150px]"
-                />
-                <p className='line-clamp-1 bg-white/40 font-bold backdrop-blur-sm rounded-lg px-4 py-2 absolute bottom-4 left-4'>{item.name}</p>
+                  <img 
+                    src={item.photos[0]} 
+                    className="w-full rounded-lg w-[170px] h-[150px]"
+                    alt={item.name}
+                  />
                 </div>
-                </a>
-              </SwiperSlide>
+                <p className='line-clamp-1 bg-white/50 font-bold backdrop-blur-sm rounded-lg px-4 py-2 absolute bottom-2 left-2 right-2'>
+                  {item.name}
+                </p>
+              </a>
+            </SwiperSlide>
              ))}
             </Swiper> : <p>No post has been made</p>}
             </div>
@@ -241,26 +250,29 @@ export const TravelDashboard = () => {
               }}
             >
              {allPost?.businessType?.touristSpots?.map((item:any,idx:number) =>(
-              <SwiperSlide className=''>
-                <a href={`/UserDashBoard/HomePage/${item.type}/${item.name}`}  key={idx} className='w-full bg-white cursor-pointer rounded-lg relative'>
+              <SwiperSlide key={idx}>
+              <a href={`/UserDashBoard/HomePage/${item.type}/${item.name}`} className='w-full bg-white cursor-pointer rounded-lg relative'>
                 <div className='relative'>
-                <img 
-                src={item.photos[0]} 
-                className="w-full rounded-lg w-[170px] h-[150px] object-fill"
-                />
-                <p className='line-clamp-1 bg-white/40 font-bold backdrop-blur-sm rounded-lg px-4 py-2 absolute bottom-4 left-4'>{item.name}</p>
+                  <img 
+                    src={item.photos[0]} 
+                    className="w-full rounded-lg w-[170px] h-[150px]"
+                    alt={item.name}
+                  />
                 </div>
-                </a>
-              </SwiperSlide>
+                <p className='line-clamp-1 bg-white/50 font-bold backdrop-blur-sm rounded-lg px-4 py-2 absolute bottom-2 left-2 right-2'>
+                  {item.name}
+                </p>
+              </a>
+            </SwiperSlide>
              ))}
             </Swiper> : <p>No post been made</p>}
             </div>
           </div>
         </div>
       </div>
-      <div className='flex-1 overflow-hidded p-8'>
-        <div className='shadow-border h-[670px] p-4 overflow-y-auto'>
-            <h1 className='font-bold text-3xl'>Event/Announcements</h1>
+      <div className='flex-5 overflow-hidded p-8'>
+        <div className='shadow-border rounded h-[670px] w-[500px] p-4 overflow-y-auto justify-right bg-teal'>
+            <h1 className='font-bold text-3xl '>Event/Announcements</h1>
             <List
               className="demo-loadmore-list"
               loading={initLoading}
@@ -270,8 +282,8 @@ export const TravelDashboard = () => {
               renderItem={(item:any) => (
                 <List.Item>
                   <div>
-                    <h1>{item.Title}</h1>
-                    <p>{item.Date}</p>
+                    <h1 className='font-bold'>{item.Title}</h1>
+                    <p className='justify-right'>{item.Date}</p>
                     <p>{item.Content}</p>
                   </div>
                 </List.Item>
@@ -280,5 +292,6 @@ export const TravelDashboard = () => {
         </div>
       </div>
     </div>
+  </div>
   )
 }

@@ -230,14 +230,7 @@ export const AdminTalk = () => {
         <p key={index}>{data && currencyFormat(Number(data))}</p>
       ),
     },
-    {
-      key: 6,
-      dataIndex: 'price',
-      title: 'Price',
-      render: (data: any, index: number) => (
-        <p key={index}>{data && currencyFormat(Number(data))}</p>
-      ),
-    },
+    
     {
       key: 7,
       dataIndex: 'type',

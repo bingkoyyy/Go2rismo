@@ -6,6 +6,7 @@ import useStore from "../../../../zustand/store/store";
 import { saveAllBookingAdmin, selector } from "../../../../zustand/store/store.provide";
 import { fetchData, } from "../../../../hooks/useFetchData";
 import { Tag } from "antd";
+import './TravelBooking.css'; // Import the CSS file for styling
 
 export const AdminBooking = () => {
   const admin = useStore(selector('admin'))
@@ -79,12 +80,19 @@ export const AdminBooking = () => {
       ),
     },
   ];
+  const rowClassName = (record: any) => {
+    if (record.status === 'Pending') return 'row-pending';
+    if (record.status === 'Accepted') return 'row-accepted';
+    if (record.status === 'Declined') return 'row-rejected';``
+    return '';
+  };
   return (
     <div className="px-12 pt-4">
       <h1 className="text-lg font-bold">List of Booking</h1>
       <CustomTable
         columns={columns}
         datasource={admin.booking ?? []}
+        rowClassName={rowClassName} // Apply the rowClassName function
       />
 
     </div>

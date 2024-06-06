@@ -176,11 +176,7 @@ export default function TouristSelectedBusiness() {
         <div className='px-4 py-2 w-full h-max shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]'>
           <div className='flex justify-between items-center'>
           <h1>Customer Reviews:</h1>
-          <CustomButton
-            children={isOpen ? 'Cancel' : 'Add review'}
-            classes='bg-sky-600 text-white'
-            onClick={() => setIsOpen(!isOpen)}
-          />
+          
           </div>
           {isOpen && <Form
           form={form}

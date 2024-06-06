@@ -3,12 +3,17 @@
 import { useEffect } from 'react'
 import useStore from '../../../../zustand/store/store'
 import { saveAllItinerary, selector } from '../../../../zustand/store/store.provide'
-import { ClockCircleOutlined } from '@ant-design/icons';
 import { fetchDataCondition } from '../../../../hooks/useFetchData'
-import { Image, Timeline } from 'antd';
-import { CustomButton } from '../../../../components/Button/CustomButton';
 import { useNavigate } from 'react-router-dom';
-import { RouterUrl } from '../../../../routes';
+import { Swiper,SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/effect-fade';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import './styles.css';
+import { Navigation, Pagination } from 'swiper/modules';
 
 export const TravelAdventure = () => {
   const traveller = useStore(selector('traveller'))
@@ -22,44 +27,46 @@ export const TravelAdventure = () => {
    },[])
 
    const travels =traveller?.itinerary?.length > 0 && traveller?.itinerary[0]?.itinerary?.length > 0 ? traveller?.itinerary[0]?.itinerary : []
+   console.log(travels)
   return (
-    <div className='px-4 md:px-16 py-8'>
-      <div className='w-[100%]'>
-        <div className='mb-8 flex flex-col sm:flex-row justify-end items-end sm:justify-between sm:items-center '>
-        <h1 className='w-full mb-4 text-[32px] font-bold'> Travel Adventure</h1>
-        <CustomButton
-        children='Add more Adventure'
-        classes='w-max bg-sky-700 text-white'
-        onClick={() => navigate(RouterUrl.TRAVELLERPLAN)}
-        />
-        </div>
-      <Timeline >
-        {travels?.map((item: any, index: string | number | bigint | undefined) => (
-          <Timeline.Item
-            key={index}
-            dot={item.dot ? <ClockCircleOutlined style={{ fontSize: '16px' }} /> : null}
-            color={item.color}
-          >
-            <div className='flex flex-col sm:flex-row gap-4'>
-              <div>
-                <Image src={item.photos[0]} width={200} height={200} />
-                <h3>{item.name}</h3>
-              </div>
-              <div>
+    <div id='adv' className='px-4 md:px-16 py-8'>
+      <p className='w-full text-center text-[25px] font-[700] text-[#060E61] mb-8'>My Adventure</p>
+      <Swiper
+        navigation={true}
+        breakpoints={{
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+          },
+        }}
+        slidesPerView={1}
+        modules={[Pagination, Navigation]}
+        pagination={{
+          clickable: true,
+        }}
+      >
+        {travels?.map((h:any,idx:number) =>{
+          return(
+          <SwiperSlide key={idx} className='h-full'>
+              <div onClick={() => navigate(`/UserDashBoard/HomePage/${h.type}/${h.name}`)} className='rounded-xl cursor-pointer h-full'>
+                
+                <div className='relative flex flex-col items-center justify-center w-full'>
+                  <img className='w-[220px] h-[220px]' src={h.photos[0] || ''} alt="" />
+                  <p className='absolute bottom-2 w-[90%] bg-white'>{h.name}</p>
+                </div>
               
-              <p>{item.description}</p>
-              {item.location && <p>Location: {item.location}</p>}
-              {item.address && <p>Address: {item.address}</p>}
-              {item.price && <p>Price: {item.price}</p>}
               </div>
-
-              {/* Render other relevant information here */}
-            </div>
-          </Timeline.Item>
-        ))}
-        </Timeline>       
-      </div>
-
+              </SwiperSlide>
+            )})}
+      </Swiper>
     </div>
   )
 }

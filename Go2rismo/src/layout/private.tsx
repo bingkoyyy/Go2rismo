@@ -105,6 +105,7 @@ export default function Private(){
     <Navigate replace to={RouterUrl.LOGIN} />
   ) : ( 
     <div>
+      <div className="app-background">
       <header className='bg-[#41E8D1] px-4 py-2 flex justify-between items-center'>
         <div className='block sm:hidden'>
           <GiHamburgerMenu className='cursor-pointer' onClick={showDrawer} size={30} />
@@ -161,6 +162,7 @@ export default function Private(){
       <main>
         <Outlet/>
       </main>
+    </div>
     </div>
   )
 }

@@ -71,7 +71,7 @@ export const BusinessDashboard = () => {
   }, [allPost.allPost]);
   return (
     <div className='w-full flex flex-nowrap overflow-x-auto'>
-      <div className='w-[850px]'>
+      <div className='w-[1250px]'>
        <div className='p-4 w-96 relative'> 
         <Search placeholder="Search post name..." onChange={useDebounce(onSetFilter)}  />
         <div className="absolute z-50 bg-white px-4 py-2 w-full flex flex-col gap-2">
@@ -84,11 +84,11 @@ export const BusinessDashboard = () => {
         <div className='px-8 flex flex-col pt-8'>
           <div>
             <h1 className='font-bold text-3xl'>Beach & Resorts</h1>
-            <div className='w-[800px] p-4'>
+            <div className= 'w-full p-4'>
             <Swiper
               ref={swiperRef}
-              slidesPerView={3}
-              spaceBetween={0}
+              slidesPerView={5}
+              spaceBetween={10}
               navigation={true}
               modules={[Pagination, Navigation]}
               className=''
@@ -102,7 +102,7 @@ export const BusinessDashboard = () => {
                 src={item.photos[0]} 
                 className="w-full rounded-lg w-[170px] h-[150px]"
                 />
-                <p className='bg-white/40 font-bold backdrop-blur-sm rounded-lg px-4 py-2 absolute bottom-4 left-4'>{item.name}</p>
+                <p className='line-clamp-1 bg-white/50 font-bold backdrop-blur-sm rounded-lg px-4 py-2 absolute bottom-2 left-2 right-2'>{item.name}</p>
                 </div>
                 </a>
               </SwiperSlide>
@@ -113,10 +113,10 @@ export const BusinessDashboard = () => {
           </div>
           <div>
             <h1 className='font-bold text-3xl'>Hotel and Room</h1>
-            <div className='w-[800px] p-4'>
+            <div className='w-full p-4'>
             <Swiper
               ref={swiperRef}
-              slidesPerView={3}
+              slidesPerView={5}
               spaceBetween={0}
               navigation={true}
               modules={[Pagination, Navigation]}
@@ -130,7 +130,7 @@ export const BusinessDashboard = () => {
               src={item.photos[0]} 
               className="w-full rounded-lg w-[170px] h-[150px]"
               />
-              <p className='bg-white/40 font-bold backdrop-blur-sm rounded-lg px-4 py-2 absolute bottom-4 left-4'>{item.name}</p>
+              <p className='line-clamp-1 bg-white/50 font-bold backdrop-blur-sm rounded-lg px-4 py-2 absolute bottom-2 left-2 right-2'>{item.name}</p>
               </div>
               </a>
             </SwiperSlide>
@@ -140,10 +140,10 @@ export const BusinessDashboard = () => {
           </div>
           <div>
             <h1 className='font-bold text-3xl'>Foods and Restaurant</h1>
-            <div className='w-[800px] p-4'>
+            <div className='w-full p-4'>
             {allPost?.businessType?.foodRestaurant?.length > 0 ? <Swiper
               ref={swiperRef}
-              slidesPerView={3}
+              slidesPerView={5}
               spaceBetween={0}
               navigation={true}
               modules={[Pagination, Navigation]}
@@ -157,7 +157,7 @@ export const BusinessDashboard = () => {
                 src={item.photos[0]} 
                 className="w-full rounded-lg w-[170px] h-[150px]"
                 />
-                <p className='bg-white/40 font-bold backdrop-blur-sm rounded-lg px-4 py-2 absolute bottom-4 left-4'>{item.name}</p>
+                <p className='line-clamp-1 bg-white/50 font-bold backdrop-blur-sm rounded-lg px-4 py-2 absolute bottom-2 left-2 right-2'>{item.name}</p>
                 </div>
                 </a>
               </SwiperSlide>
@@ -167,10 +167,10 @@ export const BusinessDashboard = () => {
           </div>
           <div>
             <h1 className='font-bold text-3xl'>Tourist Spots</h1>
-            <div className='w-[800px] p-4'>
+            <div className='w-full p-4'>
             {allPost?.businessType?.touristSpots?.length > 0 ? <Swiper
               ref={swiperRef}
-              slidesPerView={3}
+              slidesPerView={5}
               spaceBetween={0}
               navigation={true}
               modules={[Pagination, Navigation]}
@@ -184,7 +184,7 @@ export const BusinessDashboard = () => {
                 src={item.photos[0]} 
                 className="w-full rounded-lg w-[170px] h-[150px]"
                 />
-                <p className='bg-white/40 font-bold backdrop-blur-sm rounded-lg px-4 py-2 absolute bottom-4 left-4'>{item.name}</p>
+                <p className='line-clamp-1 bg-white/50 font-bold backdrop-blur-sm rounded-lg px-4 py-2 absolute bottom-2 left-2 right-2'>{item.name}</p>
                 </div>
                 </a>
               </SwiperSlide>

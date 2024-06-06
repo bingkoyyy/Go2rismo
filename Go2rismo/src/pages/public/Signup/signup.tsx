@@ -10,7 +10,7 @@ export const Signup = () => {
   return (
     <div className='h-screen w-full bg-gradient-to-b from-white via-green-400 to-cyan-500 justify-center relative items-center pt-32'>
       <div className='absolute top-0 right-0 flex flex-nowrap p-4 text-lg tracking-widest'> 
-        <p className='text-[#00256E78] font-bold'>Already have an account? </p><Link className='text-[#00256E] font-bold' to={'/Login'}>Login</Link>
+      
       </div>
      {tabs === 0 ? (
       <div className='flex justify-top h-full gap-2 flex-col items-center'>
@@ -30,6 +30,7 @@ export const Signup = () => {
             onClick={() => {setTabs(2)}}
           />
         </div>
+        <p className='text-[#00256E78] font-bold'>Already have an account? </p><Link className='text-[#00256E] font-bold' to={'/Login'}>Login</Link>
       </div>
      ) : tabs === 1 ? (<TravelFrm />) : (<BusinessFrm />)}
     </div>

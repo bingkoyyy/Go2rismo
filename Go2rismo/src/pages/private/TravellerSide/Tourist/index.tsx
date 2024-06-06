@@ -177,7 +177,7 @@ export default function TouristSelected() {
           <h1 className='text-3xl font-bold'>{type}</h1>
           <div className='w-full flex justify-center h-max'>
           <Image.PreviewGroup items={details[0].photos?.map((item:any) => item)}>
-            <Image className='w-full  h-[600px] rounded-sm object-fill' src={details[0].photos[0]} alt="" />
+            <Image className='w-full  h-[400px] rounded-sm object-fill' src={details[0].photos[0]} alt="" />
           </Image.PreviewGroup>
           </div>
         </div>
